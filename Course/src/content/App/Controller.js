@@ -14,7 +14,6 @@ class Controller {
   }
 
   async _init() {
-    console.warn(chrome.runtime)
     try {
       await Notification.requestPermission()
     } catch(error) {

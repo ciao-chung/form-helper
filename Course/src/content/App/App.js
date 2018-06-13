@@ -12,14 +12,15 @@ class App {
       return
     }
 
-    this.localStorage = storage
     console.warn()
     this.start()
   }
 
   start() {
-    console.warn('asdfsadf')
-    console.warn(this.localStorage.get('afdsasdf'))
+    chrome.storage.sync.get('form_helper_course', (data) => {
+      if(!data.form_helper_course) return
+      console.warn('start...', data.form_helper_course)
+    })
   }
 }
 

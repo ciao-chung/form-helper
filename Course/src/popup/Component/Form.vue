@@ -10,7 +10,6 @@
 </template>
 
 <script>
-import storage from 'ext/storage.js'
 export default {
   data() {
     return {
@@ -101,19 +100,16 @@ export default {
   },
   methods: {
     init() {
-      const storageConfig = this.storage.get('form_helper_course')
-      if(storageConfig instanceof Object) this.config = storageConfig
+      chrome.storage.sync.get('form_helper_course', (data) => {
+        if(!data.form_helper_course) return
+        this.config = data.form_helper_course
+      })
     },
     saveToStorage() {
-      this.storage.set('form_helper_course', this.config)
+      chrome.storage.sync.set({
+        form_helper_course: this.config
+      })
     },
-  },
-  watch: {
-  },
-  computed: {
-    storage() {
-      return storage
-    }
   },
 }
 </script>
