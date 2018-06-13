@@ -1,3 +1,4 @@
+import App from 'content/App/App.js'
 class Controller {
   constructor() {
     this._init()
@@ -9,11 +10,11 @@ class Controller {
       icon: 'https://goo.gl/Ft55Hd',
     })
 
-    console.warn(notification, delay)
     setTimeout(() => notification.close(), delay)
   }
 
   async _init() {
+    console.warn(chrome.runtime)
     try {
       await Notification.requestPermission()
     } catch(error) {
@@ -43,7 +44,7 @@ class Controller {
   }
 
   start() {
-    this.app = new App(this.notify)
+    this.app = App(this.notify)
     this.notify('啟動成功')
   }
 

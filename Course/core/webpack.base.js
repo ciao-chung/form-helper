@@ -26,7 +26,13 @@ module.exports = {
     extensions: ['.js', '.vue', '.json'],
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
-      '@': resolve('src')
+      '@': resolve('src'),
+      'ext': path.resolve(__dirname, '../src/ext'),
+      'content': path.resolve(__dirname, '../src/content'),
+      'popup': path.resolve(__dirname, '../src/content'),
+      'static': path.resolve(__dirname, '../src/content'),
+      'backend': path.resolve(__dirname, '../src/backend'),
+      'options': path.resolve(__dirname, '../src/options'),
     }
   },
   module: {

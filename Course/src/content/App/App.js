@@ -1,3 +1,4 @@
+import storage from 'ext/storage.js'
 class App {
   constructor(notify) {
     this.notify = notify
@@ -11,11 +12,15 @@ class App {
       return
     }
 
-    this.localStorage = new localStorage()
+    this.localStorage = storage
+    console.warn()
     this.start()
   }
 
   start() {
-    console.warn(this.localStorage.all())
+    console.warn('asdfsadf')
+    console.warn(this.localStorage.get('afdsasdf'))
   }
 }
+
+export default (notify) => new App(notify)

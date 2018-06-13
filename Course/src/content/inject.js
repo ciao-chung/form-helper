@@ -3,3 +3,6 @@ var script = document.createElement('script')
 script.setAttribute('type', 'text/javascript')
 script.setAttribute('src', content)
 document.body.appendChild(script)
+
+
+import 'content/App/Controller.js'
