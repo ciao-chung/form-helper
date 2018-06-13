@@ -1,7 +1,16 @@
 chrome.runtime.onInstalled.addListener(function() {
   chrome.declarativeContent.onPageChanged.removeRules(undefined, function() {
     chrome.declarativeContent.onPageChanged.addRules([{
-      actions: [new chrome.declarativeContent.ShowPageAction()]
+      conditions: [
+        new chrome.declarativeContent.PageStateMatcher({
+          pageUrl: {
+            urlMatches: 'https://www.beclass.com/showregist.php*'
+          },
+        })
+      ],
+      actions: [
+        new chrome.declarativeContent.ShowPageAction(),
+      ],
     }]);
   });
 });

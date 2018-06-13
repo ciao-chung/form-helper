@@ -5,7 +5,7 @@
   "manifest_version": 2,
   "options_page": "options.html",
   "page_action": {
-    "default_popup": "popup.html",
+    "default_popup": "popup/popup.html",
     "icons": {
       "16": "static/images/logo.png",
       "32": "static/images/logo.png",
@@ -22,7 +22,7 @@
   "content_scripts": [
     {
       "matches": ["https://www.beclass.com/*"],
-      "js": ["vendor/jquery-3.3.1.min.js", "app.js"]
+      "js": ["vendor/jquery-3.3.1.min.js", "libs/localStorage.js", "app.js"]
     }
   ],
   "permissions": ["declarativeContent", "storage", "activeTab", "notifications"],

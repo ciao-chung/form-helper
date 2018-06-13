@@ -11,18 +11,21 @@ class App {
     }
 
     this.isAtApplyPage = new RegExp('showregist.php', 'g').test(window.location.href)
+
+    if(!$('iframe#beclassmainframe')) return
+    if(!new RegExp(/rid/).test(window.location.href)) return
     if(!this.isAtApplyPage) {
       const applyPageUrl = `${window.location.origin}/${$('iframe#beclassmainframe').attr('src')}`
       window.location.assign(applyPageUrl)
       return
     }
 
+    this.localStorage = window.localStoragePlugin
     this.start()
   }
 
   start() {
-    this.notify('開始執行')
-    console.warn('start ..')
+    console.warn(this.localStorage.all())
   }
 
   notify(title, body = '', delay = 5000) {
@@ -36,3 +39,11 @@ class App {
 }
 
 new App()
+
+chrome.runtime.onMessage.addListener(request =>{
+  if(!request) return
+  if(!request.formHelper) return
+  if(request.formHelper.type != 'course') return
+  const action = request.formHelper.action
+  console.log(action)
+})
