@@ -22,5 +22,3 @@ class localStorage {
     window.localStorage.removeItem(property)
   }
 }
-
-window.localStoragePlugin = new localStorage()

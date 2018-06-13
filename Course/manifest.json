@@ -22,7 +22,12 @@
   "content_scripts": [
     {
       "matches": ["https://www.beclass.com/*"],
-      "js": ["vendor/jquery-3.3.1.min.js", "libs/localStorage.js", "app.js"]
+      "js": [
+        "vendor/jquery-3.3.1.min.js",
+        "Libs/LocalStorage.js",
+        "App/Controller.js",
+        "App/App.js"
+      ]
     }
   ],
   "permissions": ["declarativeContent", "storage", "activeTab", "notifications"],
