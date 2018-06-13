@@ -1,5 +1,6 @@
 class App {
-  constructor() {
+  constructor(notify) {
+    this.notify = notify
     this.init()
   }
 
@@ -27,6 +28,12 @@ class App {
   start() {
     console.warn(this.localStorage.all())
   }
+}
+
+class Controller {
+  constructor() {
+    this.init()
+  }
 
   notify(title, body = '', delay = 5000) {
     const notification = new Notification(title, {
@@ -36,14 +43,27 @@ class App {
 
     setTimeout(() => notification.close(), delay)
   }
+
+  init() {
+    delete this.app
+
+    chrome.runtime.onMessage.addListener(request =>{
+      if(!request) return
+      if(!request.formHelper) return
+      if(request.formHelper.type != 'course') return
+      const action = request.formHelper.action
+
+      switch (action) {
+        case 'start':
+          this.app = new App(this.notify)
+          this.notify('啟動成功')
+          break
+        default:
+          this.notify('停止')
+          window.location.reload()
+      }
+    })
+  }
 }
 
-new App()
-
-chrome.runtime.onMessage.addListener(request =>{
-  if(!request) return
-  if(!request.formHelper) return
-  if(request.formHelper.type != 'course') return
-  const action = request.formHelper.action
-  console.log(action)
-})
+new Controller()

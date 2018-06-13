@@ -4,7 +4,7 @@ chrome.runtime.onInstalled.addListener(function() {
       conditions: [
         new chrome.declarativeContent.PageStateMatcher({
           pageUrl: {
-            urlMatches: 'https://www.beclass.com/showregist.php*'
+            urlMatches: 'https://www.beclass.com/showregist.php*|rid=*'
           },
         })
       ],
