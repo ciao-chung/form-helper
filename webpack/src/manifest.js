@@ -1,11 +1,11 @@
 
 module.exports = {
-  name: 'Vue Extension',
+  name: '表單助手',
   version: '1.0.0',
-  description: 'Vue.js Chrome Extension Template (wcer)',
-  author: 'yura',
+  description: '表單助手',
+  author: 'Ciao Chung',
   manifest_version: 2,
-  icons: { '16': 'icons/16.png', '128': 'icons/128.png' },
+  icons: { '16': 'icons/logo.png', '128': 'icons/logo.png' },
   permissions: [
     '<all_urls>',
     '*://*/*',

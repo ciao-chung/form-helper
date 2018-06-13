@@ -7,7 +7,10 @@
   "private": false,
   "dependencies": {
     "axios": "^0.17.0",
+    "bootstrap": "3",
     "element-ui": "^2.0.1",
+    "font-awesome": "^4.7.0",
+    "jquery": "^3.3.1",
     "lodash": "^4.17.4",
     "vue": "^2.5.2",
     "vue-meta": "^1.2.0",

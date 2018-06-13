@@ -32,15 +32,6 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(js|vue)$/,
-        loader: 'eslint-loader',
-        enforce: 'pre',
-        include: [path.join(__dirname, '..', 'src'), path.join(__dirname, '..', 'test')],
-        options: {
-          formatter: require('eslint-friendly-formatter')
-        }
-      },
-      {
         test: /\.vue$/,
         loader: 'vue-loader',
         options: {
@@ -105,6 +96,12 @@ module.exports = {
     new ChromeReloadPlugin({
       port: 9090,
       manifest: path.join(__dirname, '..', 'src', 'manifest.js')
+    }),
+    new webpack.ProvidePlugin({
+      $: "jquery/dist/jquery",
+      jQuery: "jquery/dist/jquery",
+      "window.jQuery": "jquery",
+      "window.$": "jquery",
     }),
   ],
   performance: { hints: false },
