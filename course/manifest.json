@@ -1,0 +1,33 @@
+{
+  "name": "表單助手",
+  "version": "1.0",
+  "description": "表單助手",
+  "manifest_version": 2,
+  "options_page": "options.html",
+  "page_action": {
+    "default_popup": "popup.html",
+    "icons": {
+      "16": "static/images/logo.png",
+      "32": "static/images/logo.png",
+      "48": "static/images/logo.png",
+      "128": "static/images/logo.png"
+    }
+  },
+  "icons": {
+    "16": "static/images/logo.png",
+    "32": "static/images/logo.png",
+    "48": "static/images/logo.png",
+    "128": "static/images/logo.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.beclass.com/*"],
+      "js": ["vendor/jquery-3.3.1.min.js", "app.js"]
+    }
+  ],
+  "permissions": ["declarativeContent", "storage", "activeTab", "notifications"],
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  }
+}
