@@ -15,7 +15,7 @@
       <span>停止</span>
     </button>
 
-    <button class="btn btn-info" @click="save">
+    <button class="btn btn-info" @click="save()">
       <i class="fa fa-save"></i>
       <span>儲存資料</span>
     </button>
@@ -36,7 +36,7 @@ export default {
       })
     },
     save() {
-
+      this.$root.$emit('saveConfig')
     },
   },
 }

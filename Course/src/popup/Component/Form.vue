@@ -94,11 +94,21 @@ export default {
   },
   created() {
     this.init()
+    this.$root.$on('saveConfig', this.saveToStorage)
+  },
+  beforeDestroy() {
+    this.$root.$off('saveConfig')
   },
   methods: {
     init() {
-
+      const storageConfig = this.storage.get('form_helper_course')
+      if(storageConfig instanceof Object) this.config = storageConfig
     },
+    saveToStorage() {
+      this.storage.set('form_helper_course', this.config)
+    },
+  },
+  watch: {
   },
   computed: {
     storage() {
