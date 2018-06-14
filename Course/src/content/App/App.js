@@ -14,14 +14,33 @@ class App {
 
     chrome.storage.sync.get('form_helper_course', (data) => {
       if(!data.form_helper_course) return
-
       this.start(data.form_helper_course)
-
     })
   }
 
-  start() {
-    console.warn('start...')
+  start(config) {
+    console.warn('start...', config)
+
+    $('input').removeAttr('disabled')
+    $('select').removeAttr('disabled')
+    $('#myclasses input[type="checkbox"]').prop('checked', true)
+    $('#username').val(config.name)
+    $('#person_id').val(config.personId)
+    $('#bornyear').val(config.birth_year)
+    $('#bornmonth').val(config.birth_month)
+    $('#bornday').val(config.birth_day)
+    $('#mobile').val(config.mobile)
+    $('#phone_area').val(config.phone_area)
+    $('#phone_body').val(config.phone_body)
+    $('#phon_ext').val(config.phone_ext)
+    $('#email').val(config.email)
+    $('input[name="sex"][value="女"]').prop('checked', true)
+
+    for(const course of config.course.split(',')) {
+      $(`input[name*="tb_extra_0"][value*="${course}"]`).prop('checked', true)
+    }
+
+    $("html, body").animate({ scrollTop: $(document).height() }, 500)
   }
 }
 

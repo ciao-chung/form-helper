@@ -43,6 +43,10 @@ class Controller {
   start() {
     this.app = App(this.notify)
   }
+
+  reload() {
+    window.location.reload()
+  }
 }
 
 new Controller()

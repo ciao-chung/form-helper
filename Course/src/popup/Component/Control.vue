@@ -102,6 +102,12 @@ export default {
       return moment(new Date()).format('YYYY-MM-DD HH:mm:ss')
     },
     emit(action) {
+      if(action == 'start') {
+        this.triggerEvent('reload')
+        setTimeout(() => this.triggerEvent('start'), 1000)
+        return
+      }
+
       this.$nextTick(() => this.triggerEvent(action))
     },
     triggerEvent(action) {
