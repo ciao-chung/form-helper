@@ -57,6 +57,7 @@ export default {
       countdownInterval: null,
       current: null,
       onCountdown: false,
+      waitForReload: 3000,
     }
   },
   created() {
@@ -84,7 +85,7 @@ export default {
       // polling
       this.countdownInterval = setInterval(() => {
         const now = new Date().getTime()
-        const wait = now < apply_at ? (apply_at - now) : 0
+        const wait = now < apply_at ? (apply_at - now - this.waitForReload) : 0
 
         // 時間到
         if(now >= apply_at || wait == 0) {
@@ -104,7 +105,7 @@ export default {
     emit(action) {
       if(action == 'start') {
         this.triggerEvent('reload')
-        setTimeout(() => this.triggerEvent('start'), 1000)
+        setTimeout(() => this.triggerEvent('start'), this.waitForReload)
         return
       }
 
