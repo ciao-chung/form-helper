@@ -14,14 +14,12 @@ class Installer {
   }
 
   notify(body = '', delay = 8000) {
-    console.warn(config.project, body)
     const notification = new Notification(body, {
       // body,
       icon: 'https://goo.gl/Ft55Hd',
     })
 
     setTimeout(() => {
-      console.info('close')
       notification.close()
     }, delay)
   }

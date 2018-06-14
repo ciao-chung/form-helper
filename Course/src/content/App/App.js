@@ -12,15 +12,16 @@ class App {
       return
     }
 
-    console.warn()
-    this.start()
+    chrome.storage.sync.get('form_helper_course', (data) => {
+      if(!data.form_helper_course) return
+
+      this.start(data.form_helper_course)
+
+    })
   }
 
   start() {
-    chrome.storage.sync.get('form_helper_course', (data) => {
-      if(!data.form_helper_course) return
-      console.warn('start...', data.form_helper_course)
-    })
+    console.warn('start...')
   }
 }
 

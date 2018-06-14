@@ -28,7 +28,7 @@
     </div>
 
     <div class="form-group">
-      <button class="btn btn-danger" @click="emit('stop')">
+      <button class="btn btn-danger" @click="removeCountDown">
         <i class="fa fa-power-off"></i>
         <span>停止</span>
       </button>
@@ -90,7 +90,6 @@ export default {
         if(now >= apply_at || wait == 0) {
           this.removeCountDown()
           this.$notify('時間到, 開始報名!')
-          this.emit('stop')
           this.$nextTick(() => this.emit('start'))
         }
       }, 500)
@@ -103,7 +102,9 @@ export default {
       return moment(new Date()).format('YYYY-MM-DD HH:mm:ss')
     },
     emit(action) {
-      if(action == 'stop') this.removeCountDown()
+      this.$nextTick(() => this.triggerEvent(action))
+    },
+    triggerEvent(action) {
       chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
         chrome.tabs.sendMessage(tabs[0].id, {
           formHelper: {
@@ -112,7 +113,7 @@ export default {
           },
         })
       })
-    },
+    }
   },
 }
 </script>

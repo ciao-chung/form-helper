@@ -20,8 +20,6 @@ class Controller {
       alert('請先允許本網頁的通知(Chrome設定>內容設定>通知), 才能正常收到擴充套件的訊息')
     }
 
-    delete this.app
-
     chrome.runtime.onMessage.addListener(request =>{
       if(!request) return
       if(!request.formHelper) return
@@ -44,11 +42,6 @@ class Controller {
 
   start() {
     this.app = App(this.notify)
-  }
-
-  stop() {
-    delete this.app
-    window.location.reload()
   }
 }
 
