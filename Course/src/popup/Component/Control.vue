@@ -57,7 +57,7 @@ export default {
       countdownInterval: null,
       current: null,
       onCountdown: false,
-      waitForReload: 3000,
+      waitForReload: 1300,
     }
   },
   created() {

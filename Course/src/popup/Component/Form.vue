@@ -45,8 +45,8 @@ export default {
           placeholder: '請輸入正確格式(例如: 2018-06-14 00:00:00)',
         },
         {
-          name: 'sex(男/女)',
-          label: '性別',
+          name: 'sex',
+          label: '性別(男/女)',
           placeholder: '"男"或"女", 多填其他字或空格將會造成錯誤',
         },
         {
@@ -60,8 +60,8 @@ export default {
           placeholder: '',
         },
         {
-          name: 'birth_year 請填西元年(民國年加1991)',
-          label: '生日(年)',
+          name: 'birth_year',
+          label: '生日(年), 請填西元年(民國年加1991)',
           placeholder: '請填西元年(民國年加1991)',
         },
         {
@@ -70,8 +70,8 @@ export default {
           placeholder: '',
         },
         {
-          name: 'birth_day(個位數請勿補0)',
-          label: '生日(日)',
+          name: 'birth_day',
+          label: '生日(日), 個位數請勿補0',
           placeholder: '個位數請勿補0',
         },
         {
@@ -85,8 +85,8 @@ export default {
           placeholder: '',
         },
         {
-          name: 'phone_ext(無分機請略過此欄位)',
-          label: '市話(分機)',
+          name: 'phone_ext',
+          label: '市話(分機, 無分機請略過此欄位)',
           placeholder: '無分機請略過此欄位',
         },
         {
