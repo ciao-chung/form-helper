@@ -30,7 +30,7 @@ module.exports = {
       'ext': path.resolve(__dirname, '../src/ext'),
       'content': path.resolve(__dirname, '../src/content'),
       'popup': path.resolve(__dirname, '../src/popup'),
-      'static': path.resolve(__dirname, '../src/static'),
+      'static': path.resolve(__dirname, '../static'),
       'backend': path.resolve(__dirname, '../src/backend'),
       'options': path.resolve(__dirname, '../src/options'),
     }

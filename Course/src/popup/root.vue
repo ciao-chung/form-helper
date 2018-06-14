@@ -1,7 +1,9 @@
 <template>
-  <div popup>
+  <div popup :form-open="formOpen">
     <div class="container">
-      <PopupControl/>
+      <PopupControl
+        :formOpen="formOpen"
+        @toggleForm="toggleForm" />
       <PopupForm/>
     </div>
   </div>
@@ -12,6 +14,16 @@ import bootstrap from 'bootstrap/dist/js/bootstrap.min.js'
 import PopupControl from 'popup/Component/Control.vue'
 import PopupForm from 'popup/Component/Form.vue'
 export default {
+  data() {
+    return {
+      formOpen: false,
+    }
+  },
+  methods: {
+    toggleForm() {
+      this.formOpen = !this.formOpen
+    }
+  },
   components: {
     PopupControl,
     PopupForm,
@@ -24,6 +36,8 @@ export default {
 <style lang="sass" scoped>
 div[popup]
   width: 600px
-  height: 800px
+  height: 150px
   padding: 30px
+  &[form-open]
+    height: 800px
 </style>

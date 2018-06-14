@@ -33,7 +33,7 @@ module.exports = {
   content_scripts: [{
     js: [ 'js/inject.js' ],
     run_at: 'document_end',
-    matches: ['<all_urls>'],
+    matches: ['https://www.beclass.com/*'],
     all_frames: true
   }],
   content_security_policy: "script-src 'self' 'unsafe-eval'; object-src 'self'",
