@@ -2,7 +2,7 @@
   <div>
     <div class="form-group">
       <span v-if="current" :on-countdown="onCountdown">
-        目前時間: {{current}}
+        目前GMT時間: {{current}}
         <span v-if="onCountdown">(倒數中)</span>
       </span>
     </div>
@@ -89,8 +89,9 @@ export default {
         // 時間到
         if(now >= apply_at || wait == 0) {
           this.removeCountDown()
-          this.$notify('請先填寫資料')
-          this.emit('start')
+          this.$notify('時間到, 開始報名!')
+          this.emit('stop')
+          this.$nextTick(() => this.emit('start'))
         }
       }, 500)
     },

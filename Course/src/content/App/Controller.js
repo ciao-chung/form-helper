@@ -1,12 +1,12 @@
 import App from 'content/App/App.js'
+import config from 'static/config.js'
 class Controller {
   constructor() {
     this._init()
   }
 
-  notify(body = '', delay = 5000) {
-    const notification = new Notification('表單助手', {
-      body: body,
+  notify(body = '', delay = 8000) {
+    const notification = new Notification(body, {
       icon: 'https://goo.gl/Ft55Hd',
     })
 
@@ -44,12 +44,10 @@ class Controller {
 
   start() {
     this.app = App(this.notify)
-    this.notify('啟動成功')
   }
 
   stop() {
     delete this.app
-    this.notify('停止')
     window.location.reload()
   }
 }

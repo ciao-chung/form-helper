@@ -121,15 +121,8 @@ export default {
       chrome.storage.sync.set({
         form_helper_course: this.config
       })
-      this.notify('儲存成功')
+      this.$notify('儲存成功')
     },
-    notify(title = '', delay = 5000) {
-      const notification = new Notification(title, {
-        icon: 'https://goo.gl/Ft55Hd',
-      })
-
-      setTimeout(() => notification.close(), delay)
-    }
   },
 }
 </script>
