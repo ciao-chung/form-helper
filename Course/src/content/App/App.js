@@ -34,7 +34,7 @@ class App {
     $('#phone_body').val(config.phone_body)
     $('#phon_ext').val(config.phone_ext)
     $('#email').val(config.email)
-    $('input[name="sex"][value="女"]').prop('checked', true)
+    $(`input[name="sex"][value="${config.sex}"]`).prop('checked', true)
 
     for(const course of config.course.split(',')) {
       $(`input[name*="tb_extra_0"][value*="${course}"]`).prop('checked', true)

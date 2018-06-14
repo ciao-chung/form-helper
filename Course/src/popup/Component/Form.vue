@@ -41,11 +41,11 @@ export default {
       config_list: [
         {
           name: 'apply_at',
-          label: '報名時間',
+          label: '搶票/報名時間(格式範例: 2018-06-14 00:00:00)',
           placeholder: '請輸入正確格式(例如: 2018-06-14 00:00:00)',
         },
         {
-          name: 'sex',
+          name: 'sex(男/女)',
           label: '性別',
           placeholder: '"男"或"女", 多填其他字或空格將會造成錯誤',
         },
@@ -60,7 +60,7 @@ export default {
           placeholder: '',
         },
         {
-          name: 'birth_year',
+          name: 'birth_year 請填西元年(民國年加1991)',
           label: '生日(年)',
           placeholder: '請填西元年(民國年加1991)',
         },
@@ -70,9 +70,9 @@ export default {
           placeholder: '',
         },
         {
-          name: 'birth_day',
+          name: 'birth_day(個位數請勿補0)',
           label: '生日(日)',
-          placeholder: '',
+          placeholder: '個位數請勿補0',
         },
         {
           name: 'phone_area',
@@ -85,9 +85,9 @@ export default {
           placeholder: '',
         },
         {
-          name: 'phone_ext',
+          name: 'phone_ext(無分機請略過此欄位)',
           label: '市話(分機)',
-          placeholder: '',
+          placeholder: '無分機請略過此欄位',
         },
         {
           name: 'mobile',
@@ -101,8 +101,8 @@ export default {
         },
         {
           name: 'course',
-          label: '課程代碼',
-          placeholder: '可多選, 請以逗號區隔(例如: B12,B13)',
+          label: '課程代碼(可多選, 範例: BA12,BA13)',
+          placeholder: '可多選, 請以逗號區隔(例如: BA12,BA13)',
         },
       ]
     }
