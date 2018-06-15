@@ -58,6 +58,7 @@ export default {
       current: null,
       onCountdown: false,
       waitForReload: 1300,
+      pollingInterval: 500,
     }
   },
   created() {
@@ -85,7 +86,7 @@ export default {
       // polling
       this.countdownInterval = setInterval(() => {
         const now = new Date().getTime()
-        const wait = now < apply_at ? (apply_at - now - this.waitForReload) : 0
+        const wait = now < apply_at ? (apply_at - now) - (this.waitForReload - this.pollingInterval) : 0
 
         // 時間到
         if(now >= apply_at || wait == 0) {
@@ -93,7 +94,7 @@ export default {
           this.$notify('時間到, 開始報名!')
           this.$nextTick(() => this.emit('start'))
         }
-      }, 500)
+      }, this.pollingInterval)
     },
     removeCountDown() {
       this.onCountdown = false
